@@ -11,9 +11,9 @@ logging.basicConfig(
     format='%(asctime)s %(message)s')
 
 
-IN_FILES = ['data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_08_32_338904.csv',
-            'data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_15_43_988750.csv',
-            'data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_22_17_675082.csv']
+IN_FILES = ['../data/raw/1_2024-05-26_18-22.csv',
+            '../data/raw/2_2024-05-26_18-23.csv',
+            '../data/raw/3_2024-05-26_18-23.csv']
 
 OUT_TRAIN = 'data/proc/train.csv'
 OUT_VAL = 'data/proc/val.csv'
