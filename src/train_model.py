@@ -9,14 +9,14 @@ from joblib import dump
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-    filename='log/train_model.log',
+    filename='./log/train_model.log',
     encoding='utf-8',
     level=logging.DEBUG,
     format='%(asctime)s %(message)s')
 
-TRAIN_DATA = 'data/proc/train.csv'
-VAL_DATA = 'data/proc/val.csv'
-MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
+TRAIN_DATA = './data/proc/train.csv'
+VAL_DATA = './data/proc/val.csv'
+MODEL_SAVE_PATH = './models/linear_regression_v01.joblib'
 
 
 def main(args):

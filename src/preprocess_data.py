@@ -5,15 +5,15 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-    filename='log/preprocess_data.log',
+    filename='./log/preprocess_data.log',
     encoding='utf-8',
     level=logging.DEBUG,
     format='%(asctime)s %(message)s')
 
 
-IN_FILES = ['../data/raw/1_2024-05-26_18-22.csv',
-            '../data/raw/2_2024-05-26_18-23.csv',
-            '../data/raw/3_2024-05-26_18-23.csv']
+IN_FILES = ['./data/raw/1_2024-05-26_18-22.csv',
+            './data/raw/2_2024-05-26_18-23.csv',
+            './data/raw/3_2024-05-26_18-23.csv']
 
 OUT_TRAIN = 'data/proc/train.csv'
 OUT_VAL = 'data/proc/val.csv'
@@ -22,9 +22,9 @@ TRAIN_SIZE = 0.9
 
 
 def main(args):
-    main_dataframe = pd.read_csv(args.input[0], delimiter=';')
+    main_dataframe = pd.read_csv(args.input[0], delimiter=',')
     for i in range(1, len(args.input)):
-        data = pd.read_csv(args.input[i], delimiter=';')
+        data = pd.read_csv(args.input[i], delimiter=',')
         df = pd.DataFrame(data)
         main_dataframe = pd.concat([main_dataframe, df], axis=0)
 

@@ -1,10 +1,16 @@
 """House price prediction service"""
-from dotenv import dotenv_values
-from flask import Flask, request
-from flask_cors import CORS
-from joblib import load
-from flask_httpauth import HTTPTokenAuth
+import os
+import sys
 
+from dotenv import dotenv_values
+from flask import Flask, request, send_from_directory
+from flask_cors import CORS
+from flask_httpauth import HTTPTokenAuth
+from joblib import load
+
+sys.path.append('/home/user1/pabd24/src')
+from utils import (predict_cpu_bounded, predict_cpu_multithread,
+                   predict_io_bounded)
 
 MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
 
@@ -36,20 +42,39 @@ def predict(in_data: dict) -> int:
     """
     area = float(in_data['area'])
     price = model.predict([[area]])
-    return int(price)
+    return int(price.squeeze())
+
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route("/")
 def home():
-    return '<h1>Housing price service.</h1> Use /predict endpoint'
+    return """
+    <html>
+    <head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    </head>
+    <body>
+    <h1>Housing price service.</h1> Use /predict endpoint
+    </body>
+    </html>
+    """
 
 
 @app.route("/predict", methods=['POST'])
 @auth.login_required
 def predict_web_serve():
     """Dummy service"""
-    in_data = request.get_json()
-    price = predict(in_data)
+    in_data = request.get_json()['area']
+    price = predict_cpu_bounded(in_data)
+    #in_data = request.get_json()
+    #price = predict(in_data)
     return {'price': price}
 
 
