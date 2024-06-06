@@ -5,7 +5,7 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-    filename='./log/preprocess_data.log',
+    filename='../log/preprocess_data.log',
     encoding='utf-8',
     level=logging.DEBUG,
     format='%(asctime)s %(message)s')
