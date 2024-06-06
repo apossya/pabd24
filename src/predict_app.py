@@ -72,7 +72,7 @@ def home():
 def predict_web_serve():
     """Dummy service"""
     in_data = request.get_json()['area']
-    price = predict_cpu_bounded(in_data)
+    price = predict_io_bounded(in_data)
     #in_data = request.get_json()
     #price = predict(in_data)
     return {'price': price}
