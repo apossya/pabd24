@@ -67,5 +67,4 @@ requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected(
 - Комментарий: В сумме 10 запросов выполняются за 18 сек.
 
 ### [predict_io_bounded](../log/test_np_unicorn_3.txt)
-- Критический n = 300 000 000
 - Комментарий: В сумме 10 запросов выполняются за 17 сек.
