@@ -2,3 +2,4 @@
 *.xlsx
 *.json
 /raw
+/proc
