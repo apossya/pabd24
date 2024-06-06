@@ -44,27 +44,27 @@
 
 ## Результат и обсуждение
 ## flask
-### Логи при падении
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) \
 
 ### [predict_cpu_bounded](../log/test_np_flask_1.txt)
 - Комментарий: В сумме 10 запросов выполняются за 0.5 сек.
+- Критическое значение n: 300000000
 
 ### [predict_cpu_multithread](../log/test_np_flask_2.txt)
 - Комментарий: В сумме 10 запросов выполняются за 32.6 сек.
+- Критическое значение n: 300000000
 
 ### [predict_io_bounded](../log/test_np_flask_3.txt)
 - Комментарий: В сумме 10 запросов выполняются за 1.1 сек.
 
 ## unicorn
-### Логи при падении
-[2024-06-06 17:49:46 +0000] [97283] [ERROR] Can't connect to ('0.0.0.0', 8000)
 
 ### [predict_cpu_bounded](../log/test_np_unicorn_1.txt)
 - Комментарий: В сумме 10 запросов выполняются за 16.7 сек.
+- Критическое значение n: 300000000
 
 ### [predict_cpu_multithread](../log/test_np_unicorn_2.txt)
 - Комментарий: В сумме 10 запросов выполняются за 18 сек.
+- Критическое значение n: 300000000
 
 ### [predict_io_bounded](../log/test_np_unicorn_3.txt)
 - Комментарий: В сумме 10 запросов выполняются за 17 сек.
