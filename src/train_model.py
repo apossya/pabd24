@@ -20,7 +20,7 @@ MODEL_SAVE_PATH = './models/linear_regression_v01.joblib'
 
 
 def main(args):
-    df_train = pd.read_csv(TRAIN_DATA)
+    df_train = pd.read_csv(TRAIN_DATA, sep = ",")
     x_train = df_train[['total_meters']]
     y_train = df_train['price']
     df_val = pd.read_csv(VAL_DATA)
