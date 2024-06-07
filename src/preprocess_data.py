@@ -11,15 +11,15 @@ logging.basicConfig(
     format='%(asctime)s %(message)s')
 
 
-IN_FILES = ['./data/raw/1_2024-05-26_18-22.csv',
-            './data/raw/2_2024-05-26_18-23.csv',
-            './data/raw/3_2024-05-26_18-23.csv']
+IN_FILES = ['./data/raw/1_2024-06-07_17-42.csv',
+            './data/raw/2_2024-06-07_17-43.csv',
+            './data/raw/3_2024-06-07_17-44.csv']
 
 OUT_TRAIN = 'data/proc/train.csv'
 OUT_TEST = 'data/proc/test.csv'
 
 TRAIN_SIZE = 0.9
-PRICE_THRESHOLD = 10_000_000
+PRICE_THRESHOLD = 30_000_000
 
 
 def main(args):
