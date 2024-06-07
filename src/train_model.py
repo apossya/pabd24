@@ -20,13 +20,12 @@ MODEL_SAVE_PATH = './models/linear_regression_v01.joblib'
 
 
 def main(args):
-    df_train = pd.read_csv(TRAIN_DATA)
+    df_train = pd.read_csv(TRAIN_DATA, sep = ",")
     x_train = df_train[['total_meters']]
     y_train = df_train['price']
     df_val = pd.read_csv(VAL_DATA)
     x_val = df_val[['total_meters']]
     y_val = df_val['price']
-
     linear_model = LinearRegression()
     linear_model.fit(x_train, y_train)
     dump(linear_model, args.model)
@@ -39,7 +38,6 @@ def main(args):
     inter = int(linear_model.intercept_)
 
     logger.info(f'R2 = {r2:.3f}     MAE = {mae:.0f}     Price = {c} * area + {inter}')
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
