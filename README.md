@@ -76,7 +76,7 @@ pip install -r requirements.txt
 Приложение для предсказания запущено на серверах:
 1. flask: http://176.109.104.141:5000/
 2. gunicorn: http://176.109.104.141:8000/
-3. Токен для авторизации: user1
+3. Токен для авторизации: pabd24
 
 ### 7. Версионирование данных и экспериментов
 
@@ -90,6 +90,12 @@ pip install -r requirements.txt
 4. Пайплайн запущен с помощью `dvc repro` в новой ветке (на модели случайного леса), получена метрика МАЕ.
 5. После сравнения двух метрик сделан вывод, что вторая модель лучше, поэтому произведён её деплой на сервер gunicorn.
 
-### 8. Использование сервиса через веб интерфейс 
+### 8. Работа с Docker
+1. Пройдены шаги из [Docker tutorial](https://docs.docker.com/guides/workshop/) и [установки docker на ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+2. Подготовлен dockerfile согласно требованиям ТЗ, контейнеризирован Docker, [образ опубликован на DockerHub](https://hub.docker.com/repository/docker/apossya/pabd24/general)
+3. Образ использует gunicorn и порт 8000.
+4. Для запуска приложения используйте docker: `docker run ailabintsev/pabd24:latest`
+
+### 9. Использование сервиса через веб интерфейс 
 
 Для использования сервиса используйте файл `web/index.html`. 
