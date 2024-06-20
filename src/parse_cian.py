@@ -22,7 +22,7 @@ def main():
         with_saving_csv=True,
         additional_settings={
             "start_page": 1,
-            "end_page": 10,
+            "end_page": 20,
             "object_type": "secondary"
         })
     df = pd.DataFrame(data)

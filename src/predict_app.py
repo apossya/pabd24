@@ -12,16 +12,16 @@ sys.path.append('/home/user1/pabd24/src')
 from utils import (predict_cpu_bounded, predict_cpu_multithread,
                    predict_io_bounded)
 
-MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
+MODEL_SAVE_PATH = 'models/random_forest_v01.joblib'
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)   
 
 config = dotenv_values(".env")
 auth = HTTPTokenAuth(scheme='Bearer')
 
 tokens = {
-    config['APP_TOKEN']: "user1",
+    config['APP_TOKEN']: "pabd24",
 }
 
 model = load(MODEL_SAVE_PATH)
@@ -71,9 +71,9 @@ def home():
 @auth.login_required
 def predict_web_serve():
     """Dummy service"""
-    in_data = request.get_json()['area']
+    #in_data = request.get_json()['area']
     #price = predict_io_bounded(in_data)
-    #in_data = request.get_json()
+    in_data = request.get_json()
     price = predict(in_data)
     return {'price': price}
 
